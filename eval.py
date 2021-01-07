@@ -4,8 +4,9 @@ import cv2
 import os
 
 
-def standardize_input(source_img):
-    img = cv2.cvtColor(source_img, cv2.COLOR_BGR2HSV)
+def standardize_input(img_path):
+    img = cv2.imread(img_path)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     img = cv2.inRange(img, (0, 0, 0), (255, 45, 255))
     img = cv2.erode(img, (3, 3), iterations=4)
